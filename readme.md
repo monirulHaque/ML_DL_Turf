@@ -12,7 +12,6 @@ This repository contains my notes of Machine Learning and Deep Learning Concepts
     - [Instance-based vs Model-based learning](#instance-based-vs-model-based-learning)
   - [Challenges](#challenges)
     - [Data](#data)
-      - [Amount \& Quality](#amount--quality)
         - [Sampling Techniques](#sampling-techniques)
           - [Uniform sampling](#uniform-sampling)
           - [Reservoir sampling](#reservoir-sampling)
@@ -22,6 +21,7 @@ This repository contains my notes of Machine Learning and Deep Learning Concepts
       - [Non-representive data](#non-representive-data)
       - [Sampling Bias](#sampling-bias)
       - [Missing Data](#missing-data)
+      - [Outliers](#outliers)
       - [Imbalanced Data](#imbalanced-data)
         - [Resampling Techniques](#resampling-techniques)
         - [Algorithm-Level Techniques](#algorithm-level-techniques)
@@ -183,13 +183,9 @@ Machine Learning is a very sophisticated form of statistical data that involves 
 ---------------------------------------------
 ## Challenges
 ### Data
-#### Amount & Quality
 - The idea that data matters more than algorithms for complex problems was popularized by Peter Norvig et al. in a paper titled “The Unreasonable Effectiveness of Data”, published in 2009. However, that small and medium-sized datasets are still very common, and it is not always easy or cheap to get extra training data; so algorithms are still important.
 - if training data is full of errors, outliers, and noise (e.g., due to poor
-quality measurements), it will make it harder for the system to detect the underlying patterns. It is often well worth the effort to spend time cleaning up training data. Some common practices,
-• If some instances are clearly outliers, it may help to simply discard them or try to fix the errors manually.
-• If some instances are missing a few features (e.g., 5% of customers did not specify their age), it must be decided whether to ignore this attribute
-altogether, ignore these instances, fill in the missing values (e.g., with the median age), or train one model with the feature and one model without it.
+quality measurements), it will make it harder for the system to detect the underlying patterns. It is often well worth the effort to spend time cleaning up training data. 
 
 ##### Sampling Techniques
 ###### Uniform sampling
@@ -200,6 +196,13 @@ altogether, ignore these instances, fill in the missing values (e.g., with the m
 #### Non-representive data
 #### Sampling Bias
 #### Missing Data
+If some instances are missing a few features (e.g., 5% of customers did not specify their age), there are a few solutions,
+- **Remove the attribute (column)**:
+- **Remove the instance (row)**:
+- **Train one model with the feature and one model without it**:
+
+#### Outliers
+
 #### Imbalanced Data
 Imbalanced datasets occur when one class (majority) significantly outnumbers another (minority), leading to biased models with high overall accuracy but poor minority-class performance. This is critical in domains like fraud detection (1–2% fraud rate) or medical diagnosis where misclassifying minority cases has severe consequences
 
@@ -241,15 +244,16 @@ Modify learning algorithms to prioritize minority classes
 
 
 #### Data distribution shifts
+
 ### Feature
 #### Feature Selection
-- Filter Methods: These methods assess the relevance of features based on statistical properties such as correlation, chi-square test, or information gain.
-- Wrapper Methods: These methods evaluate subsets of features by training models iteratively and selecting the best subset based on model performance.
-- Embedded Methods: These techniques incorporate feature selection as part of the model training process, such as regularization methods like Lasso (L1) or Ridge (L2) regression.
-- Principal Component Analysis (PCA): A dimensionality reduction technique that identifies linear combinations of features that capture the most variance in the data.
-- Recursive Feature Elimination (RFE): An iterative technique that recursively removes features with the least importance until the desired number of features is reached.
-- Tree-based Methods: These methods, such as Random Forest or Gradient Boosting, provide feature importance scores that can be used for selection.
-- Univariate Feature Selection: Selects features based on univariate statistical tests applied to each feature individually.
+- **Filter Methods:** These methods assess the relevance of features based on statistical properties such as correlation, chi-square test, or information gain.
+- **Wrapper Methods:** These methods evaluate subsets of features by training models iteratively and selecting the best subset based on model performance.
+- **Embedded Methods:** These techniques incorporate feature selection as part of the model training process, such as regularization methods like Lasso (L1) or Ridge (L2) regression.
+- **Principal Component Analysis (PCA):** A dimensionality reduction technique that identifies linear combinations of features that capture the most variance in the data.
+- **Recursive Feature Elimination (RFE):** An iterative technique that recursively removes features with the least importance until the desired number of features is reached.
+- **Tree-based Methods:** These methods, such as Random Forest or Gradient Boosting, provide feature importance scores that can be used for selection.
+- **Univariate Feature Selection:** Selects features based on univariate statistical tests applied to each feature individually.
 #### Feature Extraction
 
 ### Bias-Variance Tradeoff
