@@ -3,10 +3,13 @@ This repository contains my notes of Machine Learning and Deep Learning Concepts
 -------------------------------------------------------------------------
 **Table of Contents**
 - [Machine Learning](#machine-learning)
-  - [Supervised vs Unsupervised learning](#supervised-vs-unsupervised-learning)
-  - [Regression vs Classificaiton](#regression-vs-classificaiton)
-  - [Generative vs discriminative Models](#generative-vs-discriminative-models)
-  - [Parametric vs Non-parametric Models](#parametric-vs-non-parametric-models)
+  - [Comparisons](#comparisons)
+    - [Supervised vs Unsupervised learning](#supervised-vs-unsupervised-learning)
+    - [Regression vs Classificaiton](#regression-vs-classificaiton)
+    - [Generative vs discriminative Models](#generative-vs-discriminative-models)
+    - [Parametric vs Non-parametric Models](#parametric-vs-non-parametric-models)
+    - [Batch vs Online Learning](#batch-vs-online-learning)
+    - [Instance-based vs Model-based learning](#instance-based-vs-model-based-learning)
   - [Challenges](#challenges)
     - [Data](#data)
       - [Amount \& Quality](#amount--quality)
@@ -125,7 +128,8 @@ This repository contains my notes of Machine Learning and Deep Learning Concepts
 # Machine Learning
 Machine Learning is a very sophisticated form of statistical data that involves predictions and decisions based on data. Rather than specifically programming we let machine learning learn from the data.
 
-## Supervised vs Unsupervised learning
+## Comparisons
+### Supervised vs Unsupervised learning
 
 | Aspect | Supervised Learning | Unsupervised Learning |
 | :-- | :-- | :-- |
@@ -137,7 +141,7 @@ Machine Learning is a very sophisticated form of statistical data that involves 
 | **Overfitting Concerns** | Prone to overfitting if not regularized. | Less prone, but can still overfit to noise or irrelevant patterns. |
 | **Applications** | Image classification, sentiment analysis, fraud detection, price prediction, Spam detection, medical diagnosis, stock price prediction. | Customer segmentation, anomaly detection, recommendation engines, market basket analysis, Market segmentation, document clustering, anomaly detection in network traffic. |
 
-## Regression vs Classificaiton
+### Regression vs Classificaiton
 
 | Aspect | Regression | Classification |
 | :-- | :-- | :-- |
@@ -149,7 +153,7 @@ Machine Learning is a very sophisticated form of statistical data that involves 
 | **Evaluation Metrics** | Mean Squared Error (MSE), Root Mean Squared Error (RMSE), R² Score, MAE. | Accuracy, Precision, Recall, F1 Score, ROC-AUC. |
 | **Examples** | Predicting house prices, stock values, temperature. | Classifying spam emails, fake news, diagnosing diseases, image recognition. |
 
-## Generative vs discriminative Models
+### Generative vs discriminative Models
 
 | Aspect | Generative Models | Discriminative Models |
 | :-- | :-- | :-- |
@@ -159,7 +163,7 @@ Machine Learning is a very sophisticated form of statistical data that involves 
 | **Robustness to Outliers** | More sensitive to outliers and model assumptions | More robust to outliers and less sensitive to incorrect distribution assumptions |
 | **Main Limitation** | Requires strong assumptions about data distribution; can be complex to train | Cannot generate new data; may not capture underlying data structure |
 
-## Parametric vs Non-parametric Models
+### Parametric vs Non-parametric Models
 
 | Aspect | Parametric Models | Non-parametric Models |
 | :-- | :-- | :-- |
@@ -172,9 +176,21 @@ Machine Learning is a very sophisticated form of statistical data that involves 
 | **Example Models** | Linear Regression, Logistic Regression, Neural Networks (with fixed architecture), Naive Bayes | k-Nearest Neighbors, Decision Trees, Random Forests, Gaussian Processes, Kernel Density Estimation |
 | **When to Use** | When data fits assumed distribution or when interpretability and efficiency are priorities | When data is complex, high-dimensional, or distribution is unknown |
 
+### Batch vs Online Learning
+
+### Instance-based vs Model-based learning
+
+---------------------------------------------
 ## Challenges
 ### Data
 #### Amount & Quality
+- The idea that data matters more than algorithms for complex problems was popularized by Peter Norvig et al. in a paper titled “The Unreasonable Effectiveness of Data”, published in 2009. However, that small and medium-sized datasets are still very common, and it is not always easy or cheap to get extra training data; so algorithms are still important.
+- if training data is full of errors, outliers, and noise (e.g., due to poor
+quality measurements), it will make it harder for the system to detect the underlying patterns. It is often well worth the effort to spend time cleaning up training data. Some common practices,
+• If some instances are clearly outliers, it may help to simply discard them or try to fix the errors manually.
+• If some instances are missing a few features (e.g., 5% of customers did not specify their age), it must be decided whether to ignore this attribute
+altogether, ignore these instances, fill in the missing values (e.g., with the median age), or train one model with the feature and one model without it.
+
 ##### Sampling Techniques
 ###### Uniform sampling
 ###### Reservoir sampling
@@ -235,6 +251,7 @@ Modify learning algorithms to prioritize minority classes
 - Tree-based Methods: These methods, such as Random Forest or Gradient Boosting, provide feature importance scores that can be used for selection.
 - Univariate Feature Selection: Selects features based on univariate statistical tests applied to each feature individually.
 #### Feature Extraction
+
 ### Bias-Variance Tradeoff
 #### Regularization Techniques
 ##### L1 Regularization (Lasso)
@@ -284,7 +301,7 @@ Modify learning algorithms to prioritize minority classes
 ##### Weight Decay
 ### Overfitting vs Underfitting
 ### Curse of Dimensionality
-
+---------------------------------------------
 ## Testing and Validation
 ### No Free Lunch Theorem
 #### Cross Entropy
